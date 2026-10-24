@@ -1,0 +1,11 @@
+
+Running 2 tests using 1 worker
+
+(node:542307) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [bureau] › tests/browser/broker-retry.spec.ts:4:1 › reprise broker : identité conservée et champs remplis après confirmation (735ms)
+(node:542406) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [mobile] › tests/browser/broker-retry.spec.ts:4:1 › reprise broker : identité conservée et champs remplis après confirmation (665ms)
+
+  2 passed (3.2s)

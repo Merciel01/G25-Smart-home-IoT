@@ -1,0 +1,15 @@
+{
+  "broker": "mqtt.flespi.io:8883",
+  "tls": true,
+  "checks": [
+    "création jeton ACL restreint",
+    "relecture des ACL",
+    "reprise sans duplication",
+    "connexion MQTT TLS",
+    "souscription propre",
+    "publication statut autorisée",
+    "aucune livraison de commande croisée, contrôles autorisés reçus",
+    "publication croisée non livrée au témoin passerelle"
+  ],
+  "note": "Pas une transaction blockchain ni une preuve de déploiement Sepolia"
+}

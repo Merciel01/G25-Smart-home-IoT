@@ -1,0 +1,46 @@
+
+Detector: incorrect-equality
+SmartHomeRegistry.allowedMask(bytes32) (packages/contracts/contracts/SmartHomeRegistry.sol#28) uses a dangerous strict equality:
+	- model == LOCK_MODEL (packages/contracts/contracts/SmartHomeRegistry.sol#28)
+SmartHomeRegistry.allowedMask(bytes32) (packages/contracts/contracts/SmartHomeRegistry.sol#28) uses a dangerous strict equality:
+	- model == PLUG_MODEL (packages/contracts/contracts/SmartHomeRegistry.sol#28)
+SmartHomeRegistry.allowedMask(bytes32) (packages/contracts/contracts/SmartHomeRegistry.sol#28) uses a dangerous strict equality:
+	- model == CAM_MODEL (packages/contracts/contracts/SmartHomeRegistry.sol#28)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Detector: timestamp
+SmartHomeRegistry.allowedMask(bytes32) (packages/contracts/contracts/SmartHomeRegistry.sol#28) uses timestamp for comparisons
+	Dangerous comparisons:
+	- model == LOCK_MODEL (packages/contracts/contracts/SmartHomeRegistry.sol#28)
+	- model == PLUG_MODEL (packages/contracts/contracts/SmartHomeRegistry.sol#28)
+	- model == CAM_MODEL (packages/contracts/contracts/SmartHomeRegistry.sol#28)
+SmartHomeRegistry.registerDevice(bytes32,address,bytes32) (packages/contracts/contracts/SmartHomeRegistry.sol#29-32) uses timestamp for comparisons
+	Dangerous comparisons:
+	- id == 0 || devices[id].owner != address(0) || signer == address(0) || signer == msg.sender || signer == gatewaySigner || signerUsed[signer] || allowedMask(model) == 0 (packages/contracts/contracts/SmartHomeRegistry.sol#30)
+SmartHomeRegistry.ownerCheck(bytes32) (packages/contracts/contracts/SmartHomeRegistry.sol#33) uses timestamp for comparisons
+	Dangerous comparisons:
+	- devices[id].owner != msg.sender (packages/contracts/contracts/SmartHomeRegistry.sol#33)
+SmartHomeRegistry.activeCheck(bytes32) (packages/contracts/contracts/SmartHomeRegistry.sol#34) uses timestamp for comparisons
+	Dangerous comparisons:
+	- devices[id].owner == address(0) (packages/contracts/contracts/SmartHomeRegistry.sol#34)
+SmartHomeRegistry.grantPermission(bytes32,address,uint8,uint64) (packages/contracts/contracts/SmartHomeRegistry.sol#35-38) uses timestamp for comparisons
+	Dangerous comparisons:
+	- user == address(0) || mask == 0 || (mask & allowedMask(devices[id].modelId)) != mask || expiresAt <= block.timestamp (packages/contracts/contracts/SmartHomeRegistry.sol#36)
+SmartHomeRegistry.hasPermission(bytes32,address,uint8) (packages/contracts/contracts/SmartHomeRegistry.sol#41-44) uses timestamp for comparisons
+	Dangerous comparisons:
+	- d.owner == address(0) || d.revoked || action > 5 || (allowedMask(d.modelId) & uint8(1 << action)) == 0 (packages/contracts/contracts/SmartHomeRegistry.sol#42)
+	- user == d.owner || (p.expiresAt > block.timestamp && (p.mask & uint8(1 << action)) != 0) (packages/contracts/contracts/SmartHomeRegistry.sol#43)
+SmartHomeRegistry.requestCommand(bytes32,uint8,uint64) (packages/contracts/contracts/SmartHomeRegistry.sol#45-50) uses timestamp for comparisons
+	Dangerous comparisons:
+	- deadline <= block.timestamp || deadline > block.timestamp + MAX_TTL (packages/contracts/contracts/SmartHomeRegistry.sol#46)
+	- msg.sender == devices[id].owner (packages/contracts/contracts/SmartHomeRegistry.sol#48)
+SmartHomeRegistry.isCommandExecutable(bytes32) (packages/contracts/contracts/SmartHomeRegistry.sol#51) uses timestamp for comparisons
+	Dangerous comparisons:
+	- c.requester != address(0) && ! c.finalized && block.timestamp < c.deadline && hasPermission(c.deviceId,c.requester,c.action) && (c.requester == devices[c.deviceId].owner || permissions[c.deviceId][c.requester].revision == c.revision) (packages/contracts/contracts/SmartHomeRegistry.sol#51)
+SmartHomeRegistry.recordCommandResult(SmartHomeRegistry.Ack,bytes) (packages/contracts/contracts/SmartHomeRegistry.sol#52-58) uses timestamp for comparisons
+	Dangerous comparisons:
+	- c.requester == address(0) || c.finalized || a.deviceId != c.deviceId || a.action != c.action || a.outcome > 1 || a.executedAt > block.timestamp || a.executedAt > c.deadline || a.executedAt < devices[a.deviceId].registeredAt (packages/contracts/contracts/SmartHomeRegistry.sol#54)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+artifacts/compiler-input.json analyzed (16 contracts with 102 detectors), 12 result(s) found
+'scripts/solc-local.mjs --version' running
+'scripts/solc-local.mjs --standard-json --allow-paths /home/merciel-mithimbo/Projets/G25-Smart-home-IoT' running

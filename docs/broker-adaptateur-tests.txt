@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: EMQX : ACL exactes avant utilisateur, vérification et reprise idempotente
+ok 1 - EMQX : ACL exactes avant utilisateur, vérification et reprise idempotente
+  ---
+  duration_ms: 9.801038
+  type: 'test'
+  ...
+# Subtest: EMQX : reprise après échec partiel sans recréer l’identité
+ok 2 - EMQX : reprise après échec partiel sans recréer l’identité
+  ---
+  duration_ms: 1.449137
+  type: 'test'
+  ...
+# Subtest: EMQX : mauvaise authentification ou ACL non confirmées bloquent l’activation
+ok 3 - EMQX : mauvaise authentification ou ACL non confirmées bloquent l’activation
+  ---
+  duration_ms: 0.947964
+  type: 'test'
+  ...
+# Subtest: EMQX : HTTPS et données valides requis, erreur réseau sans secret
+ok 4 - EMQX : HTTPS et données valides requis, erreur réseau sans secret
+  ---
+  duration_ms: 0.353199
+  type: 'test'
+  ...
+# Subtest: Secrets : chiffrement authentifié, identité et compte liés, altération refusée
+ok 5 - Secrets : chiffrement authentifié, identité et compte liés, altération refusée
+  ---
+  duration_ms: 1.274232
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 24.713973

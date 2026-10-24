@@ -1,0 +1,51 @@
+{
+  "broker": "mqtt.flespi.io:8883",
+  "network": 31337,
+  "registry": "0xDDBEFa40C929A7d955C8Ab2dE9Daf206c71a04a1",
+  "originalOwnersPreserved": true,
+  "commands": [
+    {
+      "deviceId": "0xeae530f419186b955afaf7e75bc44f5932981a60a0b5defad09ea4cf1cb54c76",
+      "action": 0,
+      "resultTxHash": "0x99c994f9302537e5bfdd7861aaa44a4fb6766647939de9308c43a275702e7eab",
+      "signedAck": true,
+      "status": "exécutée"
+    },
+    {
+      "deviceId": "0xeae530f419186b955afaf7e75bc44f5932981a60a0b5defad09ea4cf1cb54c76",
+      "action": 1,
+      "resultTxHash": "0xf7d0f2ef9ac46df0e99bac7220d53eefdc1a5341b2f375be9329b56ec3feb803",
+      "signedAck": true,
+      "status": "exécutée"
+    },
+    {
+      "deviceId": "0x0a6129d578a8ce90b085c04717d20cb8dd789dfe0bda9501dd2a338eb95f58b3",
+      "action": 2,
+      "resultTxHash": "0x67e28df44097c8e8a44ad109977e21330888b7c924176cd0f15c7dbd1f83cc82",
+      "signedAck": true,
+      "status": "exécutée"
+    },
+    {
+      "deviceId": "0x0a6129d578a8ce90b085c04717d20cb8dd789dfe0bda9501dd2a338eb95f58b3",
+      "action": 3,
+      "resultTxHash": "0x595091cbfe6ecc01b459eb4f961e0e9c331aceaaca7fb43bd0531ff737e00e49",
+      "signedAck": true,
+      "status": "exécutée"
+    },
+    {
+      "deviceId": "0x500ff8756ed356639b2b3a5de308d2fe90dfa940ddad940cb5a93337df6603ac",
+      "action": 4,
+      "resultTxHash": "0x2c91427aabdfd7d5ccdf6003d0f133bf0659506f716f26ea843a8101094fb12e",
+      "signedAck": true,
+      "status": "exécutée"
+    },
+    {
+      "deviceId": "0x500ff8756ed356639b2b3a5de308d2fe90dfa940ddad940cb5a93337df6603ac",
+      "action": 5,
+      "resultTxHash": "0xa5ae4c647e4973d246ecd371988d94aeb048d33fc42244a296ad7e61671dabab",
+      "signedAck": true,
+      "status": "exécutée"
+    }
+  ],
+  "note": "Broker externe réel, contrats Hardhat locaux ; pas Sepolia"
+}

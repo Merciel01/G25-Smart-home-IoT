@@ -1,0 +1,20 @@
+{
+  "executedAt": "2026-10-23T22:58:14.187Z",
+  "transport": "MQTT TLS local, certificat vérifié",
+  "checks": [
+    {
+      "test": "connexion anonyme",
+      "result": "refusée",
+      "mqttCode": 5
+    },
+    {
+      "test": "objet lit son sujet",
+      "result": "autorisé",
+      "qos": 1
+    },
+    {
+      "test": "objet lit le sujet d’un autre objet",
+      "result": "refusé"
+    }
+  ]
+}

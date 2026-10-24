@@ -1,0 +1,8 @@
+node_modules
+artifacts
+.local
+deployments
+docs/security
+package-lock.json
+apps/web/dist
+docs/interface-tests.json

@@ -1,0 +1,3 @@
+# Outillage séparé de l’application Node.js.
+slither-analyzer==0.11.6
+reportlab==5.1.0

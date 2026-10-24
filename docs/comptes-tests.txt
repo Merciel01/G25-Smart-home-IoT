@@ -1,0 +1,17 @@
+
+Running 8 tests using 1 worker
+
+(node:509722) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [bureau] › tests/browser/app.spec.ts:405:1 › configuration multi-comptes : propriétaire identifiable et invité sans privilège (961ms)
+  ✓  2 [bureau] › tests/browser/app.spec.ts:446:1 › configuration du propriétaire : lien de gestion des accès (826ms)
+  ✓  3 [bureau] › tests/browser/app.spec.ts:474:1 › administrateur : autorisation puis révocation réelle d’un fabricant (1.3s)
+  ✓  4 [bureau] › tests/browser/app.spec.ts:521:1 › demande d’accès : invité, approbation signée du propriétaire et révocation (9.1s)
+(node:509957) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › tests/browser/app.spec.ts:405:1 › configuration multi-comptes : propriétaire identifiable et invité sans privilège (925ms)
+  ✓  6 [mobile] › tests/browser/app.spec.ts:446:1 › configuration du propriétaire : lien de gestion des accès (768ms)
+  ✓  7 [mobile] › tests/browser/app.spec.ts:474:1 › administrateur : autorisation puis révocation réelle d’un fabricant (1.4s)
+  ✓  8 [mobile] › tests/browser/app.spec.ts:521:1 › demande d’accès : invité, approbation signée du propriétaire et révocation (8.7s)
+
+  8 passed (26.2s)

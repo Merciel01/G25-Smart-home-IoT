@@ -1,0 +1,40 @@
+# Modèle à examiner avant toute création : aucune commande ne l'applique.
+# Les offres continues doivent être choisies/validées par le groupe.
+services:
+  - type: web
+    name: g25-gateway
+    runtime: node
+    buildCommand: npm ci --include=dev && npm run compile
+    startCommand: npm run gateway
+    healthCheckPath: /health
+    numInstances: 1
+    autoDeployTrigger: off
+    envVars:
+      - fromGroup: g25-public-config
+      - fromGroup: g25-gateway-secrets
+      - key: NODE_VERSION
+        value: 22.22.1
+      - key: APP_MODE
+        value: sepolia
+  - type: web
+    name: g25-simulator
+    runtime: node
+    buildCommand: npm ci --include=dev && npm run compile
+    startCommand: npm run simulator
+    healthCheckPath: /health
+    numInstances: 1
+    autoDeployTrigger: off
+    envVars:
+      - fromGroup: g25-public-config
+      - fromGroup: g25-device-secrets
+      - key: NODE_VERSION
+        value: 22.22.1
+      - key: APP_MODE
+        value: sepolia
+# PostgreSQL et broker MQTT TLS externes : à provisionner séparément.
+# Ne jamais partager les secrets gateway avec le simulateur ou le frontend.
+# Provisionnement EMQX :
+# g25-gateway-secrets : BROKER_API_KEY, BROKER_API_SECRET, PROVISIONING_ENCRYPTION_KEY.
+# g25-device-secrets : même PROVISIONING_ENCRYPTION_KEY, jamais les clés API broker.
+# g25-public-config : BROKER_PROVISIONING_DRIVER=emqx, BROKER_API_URL (HTTPS), MQTT_PREFIX.
+# Les deux services utilisent le PostgreSQL configuré ; aucune valeur secrète ici.

@@ -1,0 +1,786 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SmartHome G25",
+    "version": "0.1.0",
+    "description": "Prototype de test, aucune route execute. Détails et politique de rôle : API.md."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:3001",
+      "description": "Local uniquement"
+    }
+  ],
+  "security": [
+    {
+      "bearerSession": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerSession": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Jeton SIWE opaque, 15 minutes, en mémoire uniquement"
+      }
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "/health",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "État public limité"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        }
+      }
+    },
+    "/public-config": {
+      "get": {
+        "summary": "/public-config",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "État public limité"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        }
+      }
+    },
+    "/infrastructure": {
+      "get": {
+        "summary": "/infrastructure",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "État public limité"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        }
+      }
+    },
+    "/internal/executable/{requestId}": {
+      "get": {
+        "summary": "/internal/executable/{requestId}",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "État public limité"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/auth/challenge": {
+      "post": {
+        "summary": "Challenge SIWE",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["address"],
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/verify": {
+      "post": {
+        "summary": "Vérification SIWE",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["message", "signature"],
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "maxLength": 4096
+                  },
+                  "signature": {
+                    "type": "string",
+                    "maxLength": 132
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "Fin de session",
+        "responses": {
+          "204": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        }
+      }
+    },
+    "/devices": {
+      "get": {
+        "summary": "Objets accessibles",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        }
+      }
+    },
+    "/devices/{id}/metadata": {
+      "patch": {
+        "summary": "Métadonnées du propriétaire",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^0x[0-9a-fA-F]{64}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["name", "room"],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "maxLength": 80
+                  },
+                  "room": {
+                    "type": "string",
+                    "maxLength": 80
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/permissions": {
+      "get": {
+        "summary": "Permissions visibles",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        }
+      }
+    },
+    "/commands": {
+      "get": {
+        "summary": "Historique filtré et paginé",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ]
+      }
+    },
+    "/commands/{requestId}": {
+      "get": {
+        "summary": "Progression et preuves",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^0x[0-9a-fA-F]{64}$"
+            }
+          }
+        ]
+      }
+    },
+    "/audit": {
+      "get": {
+        "summary": "Événements autorisés",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "event",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/firmware/{modelId}": {
+      "get": {
+        "summary": "Publications du modèle",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "parameters": [
+          {
+            "name": "modelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^0x[0-9a-fA-F]{64}$"
+            }
+          }
+        ]
+      }
+    },
+    "/firmware/upload": {
+      "post": {
+        "summary": "Fichier inerte vers IPFS",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["modelId", "bytes"],
+                "properties": {
+                  "modelId": {
+                    "type": "string"
+                  },
+                  "bytes": {
+                    "type": "string",
+                    "format": "byte",
+                    "maxLength": 1398104
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/firmware/install": {
+      "post": {
+        "summary": "Installation autorisée",
+        "responses": {
+          "202": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "deviceId",
+                  "version",
+                  "nonce",
+                  "expiresAt",
+                  "signature"
+                ],
+                "properties": {
+                  "deviceId": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "nonce": {
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "type": "integer"
+                  },
+                  "signature": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/installations": {
+      "get": {
+        "summary": "Résultats authentifiés",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        }
+      }
+    },
+    "/events": {
+      "get": {
+        "summary": "Flux SSE",
+        "responses": {
+          "200": {
+            "description": "Résultat documenté dans API.md"
+          },
+          "400": {
+            "description": "Entrée ou signature invalide"
+          },
+          "401": {
+            "description": "Session absente ou expirée"
+          },
+          "403": {
+            "description": "Capacité insuffisante"
+          },
+          "503": {
+            "description": "Dépendance indisponible"
+          }
+        }
+      }
+    },
+    "/onboarding": {
+      "get": {
+        "summary": "Configuration des comptes : identités publiques et propriétaires lus sur chaîne",
+        "security": [
+          {
+            "bearerSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Adresse du compte, administrateur des fabricants et trois identités de démonstration ; aucune clé privée"
+          },
+          "401": {
+            "description": "Session requise"
+          }
+        }
+      }
+    },
+    "/access-requests": {
+      "get": {
+        "summary": "Demandes visibles uniquement au demandeur ou propriétaire",
+        "security": [
+          {
+            "bearerSession": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "401": {
+            "description": "Session requise"
+          }
+        }
+      },
+      "post": {
+        "summary": "Demander les actions du modèle pendant 1 à 24 heures",
+        "security": [
+          {
+            "bearerSession": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Succès"
+          },
+          "401": {
+            "description": "Session requise"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["deviceId", "hours"],
+                "properties": {
+                  "deviceId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-fA-F]{64}$"
+                  },
+                  "hours": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 24
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/access-requests/{id}/dismiss": {
+      "post": {
+        "summary": "Refuser une demande, propriétaire actuel requis",
+        "security": [
+          {
+            "bearerSession": []
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Succès"
+          },
+          "401": {
+            "description": "Session requise"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/provision": {
+      "post": {
+        "summary": "Réserver un appareil au compte connecté (local ou EMQX configuré)",
+        "security": [
+          {
+            "bearerSession": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["model", "name"],
+                "properties": {
+                  "model": {
+                    "type": "string",
+                    "enum": ["G25-LOCK", "G25-PLUG", "G25-CAM"]
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Identité publique provisionnée ; aucune clé privée"
+          },
+          "401": {
+            "description": "Session requise"
+          },
+          "409": {
+            "description": "Provisionneur externe non configuré"
+          },
+          "503": {
+            "description": "Broker non confirmé, identité pending conservée pour reprise"
+          }
+        }
+      }
+    },
+    "/provision/{id}/retry": {
+      "post": {
+        "summary": "Reprendre le provisionnement MQTT de sa propre identité, même registre",
+        "security": [
+          {
+            "bearerSession": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Identité publique prête"
+          },
+          "404": {
+            "description": "Identité inconnue ou autre compte/registre"
+          },
+          "503": {
+            "description": "Broker non confirmé, identité conservée"
+          }
+        }
+      }
+    }
+  }
+}

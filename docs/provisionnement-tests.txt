@@ -1,0 +1,11 @@
+
+Running 2 tests using 1 worker
+
+(node:538774) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [bureau] › tests/browser/provisioning.spec.ts:4:1 › nouvel objet : provisionnement, propriété, MQTT réel, visuel et isolation (1.0m)
+(node:539135) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [mobile] › tests/browser/provisioning.spec.ts:4:1 › nouvel objet : provisionnement, propriété, MQTT réel, visuel et isolation (1.0m)
+
+  2 passed (2.1m)

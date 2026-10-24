@@ -1,0 +1,114 @@
+{
+  "network": "Hardhat local 31337",
+  "executedAt": "2026-10-23T22:58:08.356Z",
+  "observations": [
+    {
+      "test": "invité sans droit",
+      "result": "refusé"
+    },
+    {
+      "test": "transaction → indexeur → MQTT TLS → serrure → accusé signé → preuve sur chaîne",
+      "result": "réussi",
+      "requestId": "0xf42805ee8f967fcb79cb5ee82b1563670a2ca9169907edcaee51172e12cdf2fe",
+      "txHash": "0xf3ed649e221ed63f2c5daf7caf6f44e2489eb1a30ab6c1cc8c88a3495be2da76",
+      "gasUsed": "110166",
+      "ack": {
+        "requestId": "0xf42805ee8f967fcb79cb5ee82b1563670a2ca9169907edcaee51172e12cdf2fe",
+        "deviceId": "0x6ab38c339801621c4d5ccb01b66371558766d9626d6a070a619054726c474c76",
+        "action": 1,
+        "outcome": 1,
+        "stateHash": "0x09911d6fa2916d46612523684bb34dd785ee323c2a1890ccab0df00a1c4387fa",
+        "executedAt": 1792796279,
+        "deviceNonce": 15,
+        "signature": "0x6173e982360df7cd680e2763bb976e35c94ae093197662ebbf2f2da0e01e2943318760f4cf4d316245350c3308edd1ffc495ff382ffbbf36b1fad2bc0d4956bc1c",
+        "state": "UNLOCK"
+      },
+      "resultTxHash": "0xda25285603f81da139f474c3077a26e0d89c45d23aa9533e6c7b5745c483df8b",
+      "resultBlock": 108
+    },
+    {
+      "test": "invité après révocation",
+      "result": "refusé"
+    },
+    {
+      "test": "PLUG-01 ON via MQTT TLS",
+      "result": "réussi",
+      "requestId": "0x5b337a9e80b1eb19e32c6dcbe1d451574f8c47ff67d25268991821827666e9dd",
+      "txHash": "0xe560a8d3e82ebc1af2da1995621ec71814c1501c9d7e1682ee5cf0f99cd03e8a",
+      "gasUsed": "89891",
+      "ack": {
+        "requestId": "0x5b337a9e80b1eb19e32c6dcbe1d451574f8c47ff67d25268991821827666e9dd",
+        "deviceId": "0xcff73a43b9158b275d20d45fe4fc010f0bcd4ca09c933e6398079ff47400600b",
+        "action": 2,
+        "outcome": 1,
+        "stateHash": "0xe8a01133b1351e5fa434167135400d1998d3daa8ce74e3dd9bb57582fa4d7b97",
+        "executedAt": 1792796281,
+        "deviceNonce": 3,
+        "signature": "0x1278d023e5ab4fe4038985c8cffdb45812f404f0db0754b783abea84a69e32e1154b4acb29c45a34edceff1b307d3d5d194d650fec6295ee29b659455f0097241c",
+        "state": "ON"
+      },
+      "resultTxHash": "0x46e84ddf366859ad4d7e94340c0941e982e8ee193d7c9e39d560fcfcdd3d8180",
+      "resultBlock": 111
+    },
+    {
+      "test": "PLUG-01 OFF via MQTT TLS",
+      "result": "réussi",
+      "requestId": "0x561ec54096ecaa580f94cdc36c214ce5a279843a15fdb7ba4df92cf03cab117f",
+      "txHash": "0x2b14d288e94ee158a3246fcf83d7ce966bcc7d38b22c50f7a7d6609e8113f352",
+      "gasUsed": "89891",
+      "ack": {
+        "requestId": "0x561ec54096ecaa580f94cdc36c214ce5a279843a15fdb7ba4df92cf03cab117f",
+        "deviceId": "0xcff73a43b9158b275d20d45fe4fc010f0bcd4ca09c933e6398079ff47400600b",
+        "action": 3,
+        "outcome": 1,
+        "stateHash": "0x38cca6bea010af8adaf4be7d270456fa9adef8c0252db91f2767c607d077319b",
+        "executedAt": 1792796283,
+        "deviceNonce": 4,
+        "signature": "0x5d03f78200e499144859d30685fac1c8a6ec68e7b9421d057abde62b0a1793d85ba5e8004c8e9a9b40d69e0218650419f51120ccf58736bee5153b7842bc0ebf1b",
+        "state": "OFF"
+      },
+      "resultTxHash": "0x8e1f04faacd6bbfc5d5e479d63368debe00add7a3efb0d9ef0a5d47e8050857a",
+      "resultBlock": 113
+    },
+    {
+      "test": "CAM-01 ACTIVATE via MQTT TLS",
+      "result": "réussi",
+      "requestId": "0x062b5572e63f10c974e15792f67f1b6bf215c66208dce897c4ed01df95c66372",
+      "txHash": "0x1f1cfc510b8c6c9a1e09dd5fffd08d3114b6ea6ea0093aa0f7b609011d3609a3",
+      "gasUsed": "89914",
+      "ack": {
+        "requestId": "0x062b5572e63f10c974e15792f67f1b6bf215c66208dce897c4ed01df95c66372",
+        "deviceId": "0xe2f7b7adaba97b97833a3ebc488f0d19f16b0d8f2a6a00f68ee5d12bbabe5a2e",
+        "action": 4,
+        "outcome": 1,
+        "stateHash": "0xf5dcf0be62e222c4a5e9e367c3feeb42e690c797b4980a45fe4014c64c587f1d",
+        "executedAt": 1792796285,
+        "deviceNonce": 3,
+        "signature": "0x705eb3705d7756a2bd5399bfd371673acdf1a65728da12ee7a6c8366e120d4914578c1c78fc5d060563243bf15727be789fcbfaa16fcee413d7aea109ba254e01b",
+        "state": "ACTIVATE"
+      },
+      "resultTxHash": "0x4a3763432478743e41c21838a937a2abfd09e0a8388e364c69436e26a23d391d",
+      "resultBlock": 115
+    },
+    {
+      "test": "CAM-01 DEACTIVATE via MQTT TLS",
+      "result": "réussi",
+      "requestId": "0xa37fbd1d41581d950fc2b04636d8fb03972d4d520c555353cb8a23edf69e6bad",
+      "txHash": "0xcd807c6a0d6cfb6340b8a915d8c1e13695d76ef2488c2c915c367acc7202f3b6",
+      "gasUsed": "89914",
+      "ack": {
+        "requestId": "0xa37fbd1d41581d950fc2b04636d8fb03972d4d520c555353cb8a23edf69e6bad",
+        "deviceId": "0xe2f7b7adaba97b97833a3ebc488f0d19f16b0d8f2a6a00f68ee5d12bbabe5a2e",
+        "action": 5,
+        "outcome": 1,
+        "stateHash": "0x64a277938e15e411a2ec75a47af4b1dac07d028b81772c5371c6db6b07ce4583",
+        "executedAt": 1792796287,
+        "deviceNonce": 4,
+        "signature": "0x14c21ca3caef5639f64423cfb167e51bb5f67c6beb0e19f96e3dc1a80eff687c6cdb5c0e2c52c885aa0a8e7a932941729876077bd65e829c441c150e699538561b",
+        "state": "DEACTIVATE"
+      },
+      "resultTxHash": "0xa5b6ba49a9291f63c90661c2c388ac392aa01d21923774fdf546faad8dda7312",
+      "resultBlock": 117
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "provider": "Neon",
+  "directConnection": true,
+  "certificateVerification": true,
+  "checks": [
+    "migration appliquée",
+    "écriture et lecture JSONB",
+    "8 mutations concurrentes sur deux connexions sans perte",
+    "rollback sans modification",
+    "persistance après fermeture et réouverture"
+  ],
+  "localDataMigrated": false,
+  "applicationSwitchedToPostgres": false
+}

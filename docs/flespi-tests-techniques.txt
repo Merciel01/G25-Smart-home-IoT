@@ -1,0 +1,231 @@
+
+> smarthome-g25@0.1.0 test
+> npm run compile && node scripts/test.mjs
+
+
+> smarthome-g25@0.1.0 compile
+> node scripts/compile.mjs
+
+Solidity 0.8.30+commit.73712a01.Emscripten.clang; optimisation 200; EVM Cancun; contrats compilés.
+
+Fichier : packages/contracts/test/registry.test.ts
+TAP version 13
+# Subtest: identités : doublons, signers, modèles et propriété
+ok 1 - identités : doublons, signers, modèles et propriété
+  ---
+  duration_ms: 946.637547
+  type: 'test'
+  ...
+# Subtest: permissions par action, remplacement, expiration et rôles
+ok 2 - permissions par action, remplacement, expiration et rôles
+  ---
+  duration_ms: 603.957316
+  type: 'test'
+  ...
+# Subtest: révocation puis nouvel accès ne ressuscite pas une demande
+ok 3 - révocation puis nouvel accès ne ressuscite pas une demande
+  ---
+  duration_ms: 632.360672
+  type: 'test'
+  ...
+# Subtest: nonce unique, action incompatible et deadline bornée
+ok 4 - nonce unique, action incompatible et deadline bornée
+  ---
+  duration_ms: 402.875938
+  type: 'test'
+  ...
+# Subtest: accusé : signature, domaine, correspondance et double finalisation
+ok 5 - accusé : signature, domaine, correspondance et double finalisation
+  ---
+  duration_ms: 565.805546
+  type: 'test'
+  ...
+# Subtest: fabricant : bootstrap administrateur, publication monotone et révocation
+ok 6 - fabricant : bootstrap administrateur, publication monotone et révocation
+  ---
+  duration_ms: 570.79579
+  type: 'test'
+  ...
+# Subtest: expiration à la borne exacte et révocation permanente
+ok 7 - expiration à la borne exacte et révocation permanente
+  ---
+  duration_ms: 429.716423
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4167.51558
+
+Fichier : tests/protocol.test.ts
+TAP version 13
+# Subtest: commande MQTT signée, déduplication et reprise après redémarrage
+ok 1 - commande MQTT signée, déduplication et reprise après redémarrage
+  ---
+  duration_ms: 43.222986
+  type: 'test'
+  ...
+# Subtest: faux signer, mauvais sujet/destinataire, expiration et révocation en file
+ok 2 - faux signer, mauvais sujet/destinataire, expiration et révocation en file
+  ---
+  duration_ms: 24.109971
+  type: 'test'
+  ...
+# Subtest: RPC indisponible : refus fermé, aucune exécution
+ok 3 - RPC indisponible : refus fermé, aucune exécution
+  ---
+  duration_ms: 11.27646
+  type: 'test'
+  ...
+# Subtest: micrologiciel sain, résultat signé, version persistée et anti-rollback
+ok 4 - micrologiciel sain, résultat signé, version persistée et anti-rollback
+  ---
+  duration_ms: 23.885488
+  type: 'test'
+  ...
+# Subtest: installation : hash, signature, modèle, fabricant révoqué, indisponibilité, taille et invité
+ok 5 - installation : hash, signature, modèle, fabricant révoqué, indisponibilité, taille et invité
+  ---
+  duration_ms: 48.649686
+  type: 'test'
+  ...
+# Subtest: fixtures publiques : signatures, empreintes, modèle et version
+ok 6 - fixtures publiques : signatures, empreintes, modèle et version
+  ---
+  duration_ms: 23.487713
+  type: 'test'
+  ...
+# Subtest: horloge chaîne en avance : aucun effet avant un horodatage cohérent
+ok 7 - horloge chaîne en avance : aucun effet avant un horodatage cohérent
+  ---
+  duration_ms: 15.295065
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 201.669741
+
+Fichier : tests/auth.test.ts
+TAP version 13
+# Subtest: SIWE : nonce unique, expiration, domaine, faux signataire et session
+ok 1 - SIWE : nonce unique, expiration, domaine, faux signataire et session
+  ---
+  duration_ms: 121.151585
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 129.559282
+
+Fichier : tests/indexer.test.ts
+TAP version 13
+# Subtest: indexeur : reprise du curseur, révocation avant envoi et panne MQTT/RPC
+ok 1 - indexeur : reprise du curseur, révocation avant envoi et panne MQTT/RPC
+  ---
+  duration_ms: 84.960459
+  type: 'test'
+  ...
+# Subtest: réorganisation : réindexation sûre et aucun relayage sensible
+ok 2 - réorganisation : réindexation sûre et aucun relayage sensible
+  ---
+  duration_ms: 11.736593
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 101.876661
+
+Fichier : tests/external-broker.test.ts
+TAP version 13
+# Subtest: EMQX : ACL exactes avant utilisateur, vérification et reprise idempotente
+ok 1 - EMQX : ACL exactes avant utilisateur, vérification et reprise idempotente
+  ---
+  duration_ms: 9.99329
+  type: 'test'
+  ...
+# Subtest: EMQX : reprise après échec partiel sans recréer l’identité
+ok 2 - EMQX : reprise après échec partiel sans recréer l’identité
+  ---
+  duration_ms: 1.282798
+  type: 'test'
+  ...
+# Subtest: EMQX : mauvaise authentification ou ACL non confirmées bloquent l’activation
+ok 3 - EMQX : mauvaise authentification ou ACL non confirmées bloquent l’activation
+  ---
+  duration_ms: 0.876735
+  type: 'test'
+  ...
+# Subtest: EMQX : HTTPS et données valides requis, erreur réseau sans secret
+ok 4 - EMQX : HTTPS et données valides requis, erreur réseau sans secret
+  ---
+  duration_ms: 0.340399
+  type: 'test'
+  ...
+# Subtest: Secrets : chiffrement authentifié, identité et compte liés, altération refusée
+ok 5 - Secrets : chiffrement authentifié, identité et compte liés, altération refusée
+  ---
+  duration_ms: 1.222429
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 22.938291
+
+Fichier : tests/flespi-broker.test.ts
+TAP version 13
+# Subtest: flespi : ACL MQTT seules, jeton distinct et reprise sans duplication
+ok 1 - flespi : ACL MQTT seules, jeton distinct et reprise sans duplication
+  ---
+  duration_ms: 38.100615
+  type: 'test'
+  ...
+# Subtest: flespi : ACL étendues ou suppression d’un autre objet refusées
+ok 2 - flespi : ACL étendues ou suppression d’un autre objet refusées
+  ---
+  duration_ms: 1.570911
+  type: 'test'
+  ...
+# Subtest: flespi : échec réseau sans contenu secret et paramètres invalides refusés
+ok 3 - flespi : échec réseau sans contenu secret et paramètres invalides refusés
+  ---
+  duration_ms: 0.420461
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 47.915358

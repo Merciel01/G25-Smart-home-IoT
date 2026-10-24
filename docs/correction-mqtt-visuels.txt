@@ -1,0 +1,11 @@
+
+Running 2 tests using 1 worker
+
+(node:550306) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [bureau] › tests/browser/device-visuals.spec.ts:4:1 › visuels : états confirmés, actualisation, hors ligne et révocation (12.9s)
+(node:550435) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [mobile] › tests/browser/device-visuals.spec.ts:4:1 › visuels : états confirmés, actualisation, hors ligne et révocation (12.8s)
+
+  2 passed (27.5s)

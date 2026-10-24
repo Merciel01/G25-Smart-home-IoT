@@ -1,0 +1,17 @@
+
+Running 4 tests using 1 worker
+
+(node:535095) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [bureau] › tests/browser/device-visuals.spec.ts:4:1 › visuels : états confirmés, actualisation, hors ligne et révocation (12.8s)
+(node:535194) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [bureau] › tests/browser/webcam.spec.ts:14:1 › webcam locale : lecture, désactivation, refus et nettoyage (9.2s)
+(node:535305) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [mobile] › tests/browser/device-visuals.spec.ts:4:1 › visuels : états confirmés, actualisation, hors ligne et révocation (12.8s)
+(node:535472) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [mobile] › tests/browser/webcam.spec.ts:14:1 › webcam locale : lecture, désactivation, refus et nettoyage (9.2s)
+
+  4 passed (47.4s)

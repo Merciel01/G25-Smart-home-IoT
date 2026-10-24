@@ -1,0 +1,24 @@
+{
+  "broker": "flespi",
+  "network": 31337,
+  "gatewayMqtt": true,
+  "simulatorMqtt": true,
+  "states": [
+    {
+      "label": "LOCK-01",
+      "state": "LOCK",
+      "ageSeconds": 9
+    },
+    {
+      "label": "PLUG-01",
+      "state": "OFF",
+      "ageSeconds": 9
+    },
+    {
+      "label": "CAM-01",
+      "state": "DEACTIVATE",
+      "ageSeconds": 9
+    }
+  ],
+  "probeNamespaceIsolated": true
+}

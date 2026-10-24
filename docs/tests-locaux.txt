@@ -1,0 +1,153 @@
+
+> smarthome-g25@0.1.0 test
+> npm run compile && node scripts/test.mjs
+
+
+> smarthome-g25@0.1.0 compile
+> node scripts/compile.mjs
+
+Solidity 0.8.30+commit.73712a01.Emscripten.clang; optimisation 200; EVM Cancun; contrats compilés.
+
+Fichier : packages/contracts/test/registry.test.ts
+TAP version 13
+# Subtest: identités : doublons, signers, modèles et propriété
+ok 1 - identités : doublons, signers, modèles et propriété
+  ---
+  duration_ms: 968.982235
+  type: 'test'
+  ...
+# Subtest: permissions par action, remplacement, expiration et rôles
+ok 2 - permissions par action, remplacement, expiration et rôles
+  ---
+  duration_ms: 615.293704
+  type: 'test'
+  ...
+# Subtest: révocation puis nouvel accès ne ressuscite pas une demande
+ok 3 - révocation puis nouvel accès ne ressuscite pas une demande
+  ---
+  duration_ms: 648.508949
+  type: 'test'
+  ...
+# Subtest: nonce unique, action incompatible et deadline bornée
+ok 4 - nonce unique, action incompatible et deadline bornée
+  ---
+  duration_ms: 398.808654
+  type: 'test'
+  ...
+# Subtest: accusé : signature, domaine, correspondance et double finalisation
+ok 5 - accusé : signature, domaine, correspondance et double finalisation
+  ---
+  duration_ms: 549.783687
+  type: 'test'
+  ...
+# Subtest: fabricant : bootstrap administrateur, publication monotone et révocation
+ok 6 - fabricant : bootstrap administrateur, publication monotone et révocation
+  ---
+  duration_ms: 591.417314
+  type: 'test'
+  ...
+# Subtest: expiration à la borne exacte et révocation permanente
+ok 7 - expiration à la borne exacte et révocation permanente
+  ---
+  duration_ms: 425.704636
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4211.381563
+
+Fichier : tests/protocol.test.ts
+TAP version 13
+# Subtest: commande MQTT signée, déduplication et reprise après redémarrage
+ok 1 - commande MQTT signée, déduplication et reprise après redémarrage
+  ---
+  duration_ms: 41.760359
+  type: 'test'
+  ...
+# Subtest: faux signer, mauvais sujet/destinataire, expiration et révocation en file
+ok 2 - faux signer, mauvais sujet/destinataire, expiration et révocation en file
+  ---
+  duration_ms: 24.206409
+  type: 'test'
+  ...
+# Subtest: RPC indisponible : refus fermé, aucune exécution
+ok 3 - RPC indisponible : refus fermé, aucune exécution
+  ---
+  duration_ms: 10.9735
+  type: 'test'
+  ...
+# Subtest: micrologiciel sain, résultat signé, version persistée et anti-rollback
+ok 4 - micrologiciel sain, résultat signé, version persistée et anti-rollback
+  ---
+  duration_ms: 24.048062
+  type: 'test'
+  ...
+# Subtest: installation : hash, signature, modèle, fabricant révoqué, indisponibilité, taille et invité
+ok 5 - installation : hash, signature, modèle, fabricant révoqué, indisponibilité, taille et invité
+  ---
+  duration_ms: 46.37545
+  type: 'test'
+  ...
+# Subtest: fixtures publiques : signatures, empreintes, modèle et version
+ok 6 - fixtures publiques : signatures, empreintes, modèle et version
+  ---
+  duration_ms: 30.899614
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 187.632283
+
+Fichier : tests/auth.test.ts
+TAP version 13
+# Subtest: SIWE : nonce unique, expiration, domaine, faux signataire et session
+ok 1 - SIWE : nonce unique, expiration, domaine, faux signataire et session
+  ---
+  duration_ms: 121.433178
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 127.398142
+
+Fichier : tests/indexer.test.ts
+TAP version 13
+# Subtest: indexeur : reprise du curseur, révocation avant envoi et panne MQTT/RPC
+ok 1 - indexeur : reprise du curseur, révocation avant envoi et panne MQTT/RPC
+  ---
+  duration_ms: 81.982335
+  type: 'test'
+  ...
+# Subtest: réorganisation : réindexation sûre et aucun relayage sensible
+ok 2 - réorganisation : réindexation sûre et aucun relayage sensible
+  ---
+  duration_ms: 12.178666
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 99.273293

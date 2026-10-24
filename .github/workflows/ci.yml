@@ -1,0 +1,41 @@
+name: Vérifications locales
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  local:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.22.1"
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Parcours locaux et interface
+        shell: bash
+        run: |
+          npm run chain > /tmp/g25-chain.log 2>&1 &
+          for i in {1..60}; do curl -sf -X POST -H 'Content-Type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}' http://127.0.0.1:8545 && break; sleep 1; done
+          npm run local:setup
+          npm run local:broker > /tmp/g25-broker.log 2>&1 &
+          npm run local:gateway > /tmp/g25-gateway.log 2>&1 &
+          npm run local:simulator > /tmp/g25-simulator.log 2>&1 &
+          for i in {1..30}; do curl -sf http://127.0.0.1:3001/health && break; sleep 1; done
+          npm run demo
+          npm run demo:firmware
+          npm run test:transport
+          npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: preuves-locales
+          path: |
+            docs/preuve-*-local.json
+            docs/interface-tests.json
+            docs/captures/

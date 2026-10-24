@@ -1,0 +1,38 @@
+{
+  "broker": "mqtt.flespi.io",
+  "network": 31337,
+  "personal": [
+    {
+      "label": "LOCK-01",
+      "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C",
+      "state": "LOCK",
+      "freshSignedPresence": true
+    },
+    {
+      "label": "PLUG-01",
+      "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C",
+      "state": "OFF",
+      "freshSignedPresence": true
+    },
+    {
+      "label": "CAM-01",
+      "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C",
+      "state": "DEACTIVATE",
+      "freshSignedPresence": true
+    }
+  ],
+  "infrastructure": {
+    "rpc": true,
+    "mqtt": true,
+    "indexer": true,
+    "storage": "Fichier atomique local",
+    "simulation": true,
+    "network": "Hardhat local",
+    "externalDeploymentVerified": false
+  },
+  "simulator": {
+    "service": "Raspberry Pi simulé",
+    "mqtt": true
+  },
+  "publicDeploymentVerified": false
+}

@@ -1,0 +1,11 @@
+{
+  "network": 31337,
+  "recipient": "0x80CB6247Ae4b8FaF22DbA3201eEFAac98e493c6d",
+  "checks": [
+    "accès explicite PLUG ON/OFF",
+    "aucun accès serrure",
+    "fonds fictifs",
+    "révocation effective"
+  ],
+  "passed": true
+}

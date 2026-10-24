@@ -1,0 +1,32 @@
+# Modèle gratuit : aucune instance n'est créée automatiquement par cet agent.
+# Une seule instance pour les deux processus afin de partager les 750 h gratuites.
+services:
+  - type: web
+    name: g25-smarthome-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run compile
+    startCommand: npm run hosted:start
+    healthCheckPath: /health
+    numInstances: 1
+    autoDeployTrigger: off
+    envVars:
+      - fromGroup: g25-public-config
+      - fromGroup: g25-server-secrets
+      - key: NODE_VERSION
+        value: 22.22.1
+      - key: APP_MODE
+        value: sepolia
+      - key: CHAIN_ID
+        value: "11155111"
+      - key: DEVICE_KEYS_JSON
+        value: "{}"
+      - key: DEVICE_MQTT_CREDENTIALS_JSON
+        value: "{}"
+# Public : adresses contrats, bloc déploiement, MQTT_URL/PREFIX, origines HTTPS,
+# IPFS_GATEWAY_URL, BROKER_PROVISIONING_DRIVER=flespi.
+# Secrets serveur : DATABASE_URL directe, RPC_URL si elle contient une clé,
+# FLESPI_TOKEN, MQTT_USERNAME (jeton ACL), GATEWAY_SIGNING_KEY,
+# GATEWAY_RELAYER_KEY, PROVISIONING_ENCRYPTION_KEY, IPFS_API_URL/TOKEN.
+# Le lanceur retire des processus les secrets dont ils n'ont pas besoin.
+# Pas de garantie 24/7 : veille après inactivité, quotas et limites de trafic.

@@ -1,0 +1,92 @@
+{
+  "network": 31337,
+  "registry": "0xDDBEFa40C929A7d955C8Ab2dE9Daf206c71a04a1",
+  "originalDevicesPreserved": [
+    {
+      "label": "LOCK-01",
+      "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C"
+    },
+    {
+      "label": "PLUG-01",
+      "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C"
+    },
+    {
+      "label": "CAM-01",
+      "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C"
+    }
+  ],
+  "executedDynamicCommands": [
+    {
+      "deviceId": "0xd6c8bfb2ce2d368e0275e60257fa07bab3a44def9c19263b4bfc5bc385558af3",
+      "action": 0,
+      "resultTxHash": "0x928cf67526a6118b5bf1b4a8621b705b30100f24098133b71550a4a800cd478e",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0xd6c8bfb2ce2d368e0275e60257fa07bab3a44def9c19263b4bfc5bc385558af3",
+      "action": 1,
+      "resultTxHash": "0x78156fc5b559da6824f71322105f8662f2436fe676187353b416ab18cc91482c",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0x2199196596d5c8fe4a6cf65a360ed3f678b497ed8e5fbd34572d59e8ec6f67c4",
+      "action": 2,
+      "resultTxHash": "0xaa10a7ab2567495215cc4d299c582230c401ad4da26b41002d08ded959ada3f5",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0x2199196596d5c8fe4a6cf65a360ed3f678b497ed8e5fbd34572d59e8ec6f67c4",
+      "action": 3,
+      "resultTxHash": "0x438bab451f873ba7c72552619f7b222f94cdcc450406606e0e092bcbafa8f123",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0x2dd763ae7632a4012ce3a92584ddc536c90fac8e5e792bbd22905139e1629792",
+      "action": 4,
+      "resultTxHash": "0x86ff6ef166501176a8db6deaf3556a84802d5f107327cda793b565c528721773",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0x2dd763ae7632a4012ce3a92584ddc536c90fac8e5e792bbd22905139e1629792",
+      "action": 5,
+      "resultTxHash": "0x80439c617967be207ea6acc548db95ae5451ce9d43253b68c0d832cad33ba27d",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0xd5594d16f107069ba53ff574e634ef3d106181894d94d6f13c287fed9c6d4535",
+      "action": 0,
+      "resultTxHash": "0xe5d8506b952ed55257d0feff2d9908a9e672d168d3466664e6715e9afb0830e5",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0xd5594d16f107069ba53ff574e634ef3d106181894d94d6f13c287fed9c6d4535",
+      "action": 1,
+      "resultTxHash": "0x990cd4db61b103df3e53921c38bfbc9852ab88e86ccb0ca6210b6da5b00f1e2a",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0x34f5d1adb064620259b184a032414e8d026796ce3cfdd37d30a4d4683a31ea38",
+      "action": 2,
+      "resultTxHash": "0x7296cd4834179f5418e8b9979e32a736fe35ab305017ca2c4b81de5219d6fa70",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0x34f5d1adb064620259b184a032414e8d026796ce3cfdd37d30a4d4683a31ea38",
+      "action": 3,
+      "resultTxHash": "0x6b507f864f88742bc472d74f9679896b8f13e64b1a9b4aef31f51cc49e8b03fc",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0x27bb450e00ba734b3eb1a45effdba525b12c44190f367118b81a7bcc109385de",
+      "action": 4,
+      "resultTxHash": "0xe85c476f6f84630e54e16c8671008a4e08f0916ee609e34677d5526d058f012e",
+      "authenticatedAck": true
+    },
+    {
+      "deviceId": "0x27bb450e00ba734b3eb1a45effdba525b12c44190f367118b81a7bcc109385de",
+      "action": 5,
+      "resultTxHash": "0x3f7124afd8d0af1949fb61357fcd9e3c9a47141df74076ae4ba735b77099c479",
+      "authenticatedAck": true
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "network": 31337,
+  "registry": "0xDDBEFa40C929A7d955C8Ab2dE9Daf206c71a04a1",
+  "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C",
+  "registrations": [
+    {
+      "device": "LOCK-01",
+      "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C",
+      "transaction": "0x05e4c1d78ccd521060ed507aaf2b49c21c794296f89d168a973fb890f22ce682"
+    },
+    {
+      "device": "PLUG-01",
+      "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C",
+      "transaction": "0x30c9d712b02a60e7c43f31d19ec5d2803b37b831bf00e117113d583d0ce324a1"
+    },
+    {
+      "device": "CAM-01",
+      "owner": "0xd8A13256ce817d55a0939b2f6d28B3824A51d10C",
+      "transaction": "0x8a75aaca4c94d5f127b66f5fa3ff3eab6950107b9a4145bd85ce48e3a4abf18f"
+    }
+  ],
+  "bootstrap": "Enregistrement initial par impersonation Hardhat locale, aucune signature MetaMask ni clé privée utilisateur utilisée",
+  "previousRegistry": "0x5f1D5A003d1aEdD7B60045B03ca453636955DEc8"
+}

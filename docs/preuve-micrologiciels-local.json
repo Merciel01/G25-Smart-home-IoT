@@ -1,0 +1,78 @@
+{
+  "network": "Hardhat local 31337",
+  "executedAt": "2026-10-23T22:58:13.110Z",
+  "proofs": [
+    {
+      "test": "mise à jour saine via MQTT TLS",
+      "version": 10800,
+      "status": "installée",
+      "publication": {
+        "cid": "bafkreidtsduyv4knkys7wmvmjnjlna5xxfn2iycnu6fqauqjp732isdub4",
+        "cidHash": "0x1df24e65925686cfcf306272724c8bb07f8ae919d6c529d46203e5b169db0559",
+        "sha256Digest": "0x7390e98af14d5625fb32ac4b52b683b7b95ba4604da78b0052097ff7a448740f",
+        "fileSize": 70,
+        "modelId": "0xef28410a3fc6ce783984a1d17362a240cb07c7d2ab1bb6b28f9a9351a18049fb",
+        "manufacturer": "0xe02c9d1914b0b704ECB331D397Ee47bA9231B87E",
+        "txHash": "0xd50b7ed1e6c1a3fc66752efe7b75cf4de32431c042acbcb5fc10e30b0d24d7c4",
+        "gasUsed": "328860"
+      },
+      "result": {
+        "kind": "installation",
+        "deviceId": "0x6ab38c339801621c4d5ccb01b66371558766d9626d6a070a619054726c474c76",
+        "version": 10800,
+        "nonce": "0x04e027b3bedf0049ce5b1bf5dad3ed20d37c2c01a7f3d7b3b392800f778bd0da",
+        "stateHash": "0x0b28b910eed228b006124de687bf49e537a92ba0f96bed6d55844aa78cc9a888",
+        "installedAt": 1792796290,
+        "signature": "0x71eff4c5dec7638280192bf521e088333e9ee33059b7e5161ebcad1e227f963d07d509582d4021e67ba18e7014289cd99213ece460b264ba4054d1245fa316641c"
+      }
+    },
+    {
+      "test": "installation par invité",
+      "httpStatus": 403
+    },
+    {
+      "test": "rejeu autorisation",
+      "httpStatus": 400
+    },
+    {
+      "test": "fichier altéré",
+      "status": "refusée : HASH_MISMATCH",
+      "previousVersionPreserved": 10800,
+      "result": {
+        "kind": "installation-failure",
+        "deviceId": "0x6ab38c339801621c4d5ccb01b66371558766d9626d6a070a619054726c474c76",
+        "nonce": "0x4be2cda7fcbbbbe3047d35fc8f4d7b71c9053910506107128db384ba9b9d22c1",
+        "errorHash": "0xe1f219262207aed2b22b91fd6c5f6d4ba888896c683569a323e61e26538988c3",
+        "reportedAt": 1792796291,
+        "code": "HASH_MISMATCH",
+        "signature": "0x303b45ff2d377a2207be0177c0a4a26b1bfb1b9c0a40d27cfe16d2fae397f6466e8e7c1667d26b7942a1b415f38428b1e6989dac301c59d762c6184574a742b21b"
+      }
+    },
+    {
+      "test": "mise à jour après restauration du fichier sain",
+      "status": "installée",
+      "result": {
+        "kind": "installation",
+        "deviceId": "0x6ab38c339801621c4d5ccb01b66371558766d9626d6a070a619054726c474c76",
+        "version": 10900,
+        "nonce": "0xba547cbf5be1b0ef9083f898e5560e97a44c631a2e02af3ccf7ea0f59ed2a934",
+        "stateHash": "0x7f6e6918844cdd42c8cb526c4ea30636a050b59aae7fc8d8bffc8c33351b0cdf",
+        "installedAt": 1792796292,
+        "signature": "0xf549eb767840515b18535ad88f653e5d7f793b359a3b4f8cbf093c3e18d756815b4c25f47438dcb17e39726606402ea8029da302bb6057b202bd4806d33024db1c"
+      }
+    },
+    {
+      "test": "retour à une ancienne version",
+      "status": "refusée : ROLLBACK_BLOCKED",
+      "result": {
+        "kind": "installation-failure",
+        "deviceId": "0x6ab38c339801621c4d5ccb01b66371558766d9626d6a070a619054726c474c76",
+        "nonce": "0xd8143800862c2ba10a640e2d1b0ade058594200fb958dded1c34383299231cc3",
+        "errorHash": "0x07c86b2e17055b8586014c070064706e41e6b9cd11215764f780f5ff90460fe5",
+        "reportedAt": 1792796293,
+        "code": "ROLLBACK_BLOCKED",
+        "signature": "0x4267c56fd66e880cc2c517e737d5d188e2933ae4832359847dfecac3db3fa2823d3af9152145f79bd325b7cc356772065f2c468c830c6ad1439705e54aa23f2f1b"
+      }
+    }
+  ]
+}

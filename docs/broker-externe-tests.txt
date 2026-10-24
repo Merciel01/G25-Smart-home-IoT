@@ -1,0 +1,201 @@
+
+> smarthome-g25@0.1.0 test
+> npm run compile && node scripts/test.mjs
+
+
+> smarthome-g25@0.1.0 compile
+> node scripts/compile.mjs
+
+Solidity 0.8.30+commit.73712a01.Emscripten.clang; optimisation 200; EVM Cancun; contrats compilés.
+
+Fichier : packages/contracts/test/registry.test.ts
+TAP version 13
+# Subtest: identités : doublons, signers, modèles et propriété
+ok 1 - identités : doublons, signers, modèles et propriété
+  ---
+  duration_ms: 934.608157
+  type: 'test'
+  ...
+# Subtest: permissions par action, remplacement, expiration et rôles
+ok 2 - permissions par action, remplacement, expiration et rôles
+  ---
+  duration_ms: 597.145452
+  type: 'test'
+  ...
+# Subtest: révocation puis nouvel accès ne ressuscite pas une demande
+ok 3 - révocation puis nouvel accès ne ressuscite pas une demande
+  ---
+  duration_ms: 602.775607
+  type: 'test'
+  ...
+# Subtest: nonce unique, action incompatible et deadline bornée
+ok 4 - nonce unique, action incompatible et deadline bornée
+  ---
+  duration_ms: 405.523668
+  type: 'test'
+  ...
+# Subtest: accusé : signature, domaine, correspondance et double finalisation
+ok 5 - accusé : signature, domaine, correspondance et double finalisation
+  ---
+  duration_ms: 511.355033
+  type: 'test'
+  ...
+# Subtest: fabricant : bootstrap administrateur, publication monotone et révocation
+ok 6 - fabricant : bootstrap administrateur, publication monotone et révocation
+  ---
+  duration_ms: 571.047342
+  type: 'test'
+  ...
+# Subtest: expiration à la borne exacte et révocation permanente
+ok 7 - expiration à la borne exacte et révocation permanente
+  ---
+  duration_ms: 424.474827
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4059.209928
+
+Fichier : tests/protocol.test.ts
+TAP version 13
+# Subtest: commande MQTT signée, déduplication et reprise après redémarrage
+ok 1 - commande MQTT signée, déduplication et reprise après redémarrage
+  ---
+  duration_ms: 47.190755
+  type: 'test'
+  ...
+# Subtest: faux signer, mauvais sujet/destinataire, expiration et révocation en file
+ok 2 - faux signer, mauvais sujet/destinataire, expiration et révocation en file
+  ---
+  duration_ms: 36.584526
+  type: 'test'
+  ...
+# Subtest: RPC indisponible : refus fermé, aucune exécution
+ok 3 - RPC indisponible : refus fermé, aucune exécution
+  ---
+  duration_ms: 11.734988
+  type: 'test'
+  ...
+# Subtest: micrologiciel sain, résultat signé, version persistée et anti-rollback
+ok 4 - micrologiciel sain, résultat signé, version persistée et anti-rollback
+  ---
+  duration_ms: 41.50714
+  type: 'test'
+  ...
+# Subtest: installation : hash, signature, modèle, fabricant révoqué, indisponibilité, taille et invité
+ok 5 - installation : hash, signature, modèle, fabricant révoqué, indisponibilité, taille et invité
+  ---
+  duration_ms: 64.471354
+  type: 'test'
+  ...
+# Subtest: fixtures publiques : signatures, empreintes, modèle et version
+ok 6 - fixtures publiques : signatures, empreintes, modèle et version
+  ---
+  duration_ms: 12.583714
+  type: 'test'
+  ...
+# Subtest: horloge chaîne en avance : aucun effet avant un horodatage cohérent
+ok 7 - horloge chaîne en avance : aucun effet avant un horodatage cohérent
+  ---
+  duration_ms: 16.580599
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 240.909243
+
+Fichier : tests/auth.test.ts
+TAP version 13
+# Subtest: SIWE : nonce unique, expiration, domaine, faux signataire et session
+ok 1 - SIWE : nonce unique, expiration, domaine, faux signataire et session
+  ---
+  duration_ms: 136.803173
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 142.564406
+
+Fichier : tests/indexer.test.ts
+TAP version 13
+# Subtest: indexeur : reprise du curseur, révocation avant envoi et panne MQTT/RPC
+ok 1 - indexeur : reprise du curseur, révocation avant envoi et panne MQTT/RPC
+  ---
+  duration_ms: 82.240165
+  type: 'test'
+  ...
+# Subtest: réorganisation : réindexation sûre et aucun relayage sensible
+ok 2 - réorganisation : réindexation sûre et aucun relayage sensible
+  ---
+  duration_ms: 12.03486
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 99.205489
+
+Fichier : tests/external-broker.test.ts
+TAP version 13
+# Subtest: EMQX : ACL exactes avant utilisateur, vérification et reprise idempotente
+ok 1 - EMQX : ACL exactes avant utilisateur, vérification et reprise idempotente
+  ---
+  duration_ms: 8.724312
+  type: 'test'
+  ...
+# Subtest: EMQX : reprise après échec partiel sans recréer l’identité
+ok 2 - EMQX : reprise après échec partiel sans recréer l’identité
+  ---
+  duration_ms: 1.836759
+  type: 'test'
+  ...
+# Subtest: EMQX : mauvaise authentification ou ACL non confirmées bloquent l’activation
+ok 3 - EMQX : mauvaise authentification ou ACL non confirmées bloquent l’activation
+  ---
+  duration_ms: 0.898811
+  type: 'test'
+  ...
+# Subtest: EMQX : HTTPS et données valides requis, erreur réseau sans secret
+ok 4 - EMQX : HTTPS et données valides requis, erreur réseau sans secret
+  ---
+  duration_ms: 0.474741
+  type: 'test'
+  ...
+# Subtest: Secrets : chiffrement authentifié, identité et compte liés, altération refusée
+ok 5 - Secrets : chiffrement authentifié, identité et compte liés, altération refusée
+  ---
+  duration_ms: 1.086659
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 22.460866

@@ -1,0 +1,114 @@
+{
+  "warning": "Vecteurs cryptographiques hors chaîne uniquement. CID syntaxique de test, sans publication IPFS ni autorisation fabricant attestée.",
+  "domain": {
+    "name": "G25Firmware",
+    "version": "1",
+    "chainId": 31337,
+    "verifyingContract": "0x66b981cb11F42240D33E8A0170286e470bbF6b37"
+  },
+  "expectedManufacturer": "0x4d7668A99a3143715A9a099B5DbF89410Ec2453e",
+  "cases": {
+    "healthy-1.0.0": {
+      "file": "G25-LOCK-1.0.0.bin",
+      "cid": "bafkreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manifest": {
+        "modelId": "0xef28410a3fc6ce783984a1d17362a240cb07c7d2ab1bb6b28f9a9351a18049fb",
+        "version": 10000,
+        "sha256Digest": "0x7390e98af14d5625fb32ac4b52b683b7b95ba4604da78b0052097ff7a448740f",
+        "cidHash": "0xa7719e8d133f8950b8870a83c7bfa3b01396daa7b1d0db20891fcff412a1f4bd",
+        "fileSize": 70,
+        "manufacturer": "0x4d7668A99a3143715A9a099B5DbF89410Ec2453e"
+      },
+      "signature": "0x07891b3379d15cc1ae51c432b04b5c7821be264944ef74e7335b337f91056e5a55cd0cec947b8d90a6c8ad2dfa3278d0a7155892c9763932e46349f07271e7601c"
+    },
+    "healthy-1.1.0": {
+      "file": "G25-LOCK-1.1.0.bin",
+      "cid": "bafkreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manifest": {
+        "modelId": "0xef28410a3fc6ce783984a1d17362a240cb07c7d2ab1bb6b28f9a9351a18049fb",
+        "version": 10100,
+        "sha256Digest": "0x20de100bf9b1d291e0692a4b5f64786760dcad9731dc16e236b348ec2e6559c3",
+        "cidHash": "0xa7719e8d133f8950b8870a83c7bfa3b01396daa7b1d0db20891fcff412a1f4bd",
+        "fileSize": 62,
+        "manufacturer": "0x4d7668A99a3143715A9a099B5DbF89410Ec2453e"
+      },
+      "signature": "0x0cf9c2ad0ef32415ddb41d08ad906d7148d5276b3002dc6f519658e7a03c344538025cf6f1ad0d53aa1ca34159680cf98d0c4c2b97dee5d6af225b817ffb73ca1b"
+    },
+    "invalid-signature": {
+      "file": "G25-LOCK-1.1.0.bin",
+      "cid": "bafkreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manifest": {
+        "modelId": "0xef28410a3fc6ce783984a1d17362a240cb07c7d2ab1bb6b28f9a9351a18049fb",
+        "version": 10100,
+        "sha256Digest": "0x20de100bf9b1d291e0692a4b5f64786760dcad9731dc16e236b348ec2e6559c3",
+        "cidHash": "0xa7719e8d133f8950b8870a83c7bfa3b01396daa7b1d0db20891fcff412a1f4bd",
+        "fileSize": 62,
+        "manufacturer": "0x4d7668A99a3143715A9a099B5DbF89410Ec2453e"
+      },
+      "signature": "0x16d6d8d296ec53438d6ad88f6a67ac96fd3f303076327a453a556c70aa65b2a951ce11bf9e23979a192aaa9711b5a37853815cf34b29bf2ef452db55e5ad95041b"
+    },
+    "wrong-model": {
+      "file": "G25-LOCK-1.1.0.bin",
+      "cid": "bafkreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manifest": {
+        "modelId": "0x7972ccd1f341feaba8587d1b87c288e110846652ebadd45b6e76d40f8d454d31",
+        "version": 10100,
+        "sha256Digest": "0x20de100bf9b1d291e0692a4b5f64786760dcad9731dc16e236b348ec2e6559c3",
+        "cidHash": "0xa7719e8d133f8950b8870a83c7bfa3b01396daa7b1d0db20891fcff412a1f4bd",
+        "fileSize": 62,
+        "manufacturer": "0x4d7668A99a3143715A9a099B5DbF89410Ec2453e"
+      },
+      "signature": "0x23d841471e265e6b450c584f19131115d08c8f39f999732f61d8da880b706e7373a7376aac64d88a2f6f4a53f7c735f2fe9e5ad2c0f7f36c1aacfcb443af50ab1c"
+    },
+    "old-version": {
+      "file": "G25-LOCK-1.0.0.bin",
+      "cid": "bafkreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manifest": {
+        "modelId": "0xef28410a3fc6ce783984a1d17362a240cb07c7d2ab1bb6b28f9a9351a18049fb",
+        "version": 9999,
+        "sha256Digest": "0x7390e98af14d5625fb32ac4b52b683b7b95ba4604da78b0052097ff7a448740f",
+        "cidHash": "0xa7719e8d133f8950b8870a83c7bfa3b01396daa7b1d0db20891fcff412a1f4bd",
+        "fileSize": 70,
+        "manufacturer": "0x4d7668A99a3143715A9a099B5DbF89410Ec2453e"
+      },
+      "signature": "0x66e2807bc1a2d12b7fe141e93075f1d29ee38cf35997143ff7b73ba445fcbe2d6eac7d27ad493b4e0bfde018ba62729bcf243cede22107cb5aa783d4cf72a02a1c"
+    },
+    "tampered-file": {
+      "file": "altered.bin",
+      "cid": "bafkreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manifest": {
+        "modelId": "0xef28410a3fc6ce783984a1d17362a240cb07c7d2ab1bb6b28f9a9351a18049fb",
+        "version": 10100,
+        "sha256Digest": "0x20de100bf9b1d291e0692a4b5f64786760dcad9731dc16e236b348ec2e6559c3",
+        "cidHash": "0xa7719e8d133f8950b8870a83c7bfa3b01396daa7b1d0db20891fcff412a1f4bd",
+        "fileSize": 62,
+        "manufacturer": "0x4d7668A99a3143715A9a099B5DbF89410Ec2453e"
+      },
+      "signature": "0x0cf9c2ad0ef32415ddb41d08ad906d7148d5276b3002dc6f519658e7a03c344538025cf6f1ad0d53aa1ca34159680cf98d0c4c2b97dee5d6af225b817ffb73ca1b",
+      "expectedFailure": "HASH_MISMATCH"
+    }
+  },
+  "command": {
+    "domain": {
+      "name": "G25Home",
+      "version": "1",
+      "chainId": 31337,
+      "verifyingContract": "0x66b981cb11F42240D33E8A0170286e470bbF6b37"
+    },
+    "expectedGateway": "0x033C35F1832b24bAd6DE5f0669AcE24e505644c4",
+    "envelope": {
+      "protocolVersion": 1,
+      "chainId": 31337,
+      "registry": "0x66b981cb11F42240D33E8A0170286e470bbF6b37",
+      "requestId": "0xd966edf839d7a11d86d0552d5a8a39a95302c4e3703f00654b88d65a11f31c73",
+      "deviceId": "0x6ab38c339801621c4d5ccb01b66371558766d9626d6a070a619054726c474c76",
+      "action": 1,
+      "requester": "0x4d7668A99a3143715A9a099B5DbF89410Ec2453e",
+      "permissionRevision": 1,
+      "issuedAt": 1700000000,
+      "expiresAt": 1700000120
+    },
+    "signature": "0xa136a43b516a628aad595bb3ed5f9a8d111a6b8bc119525becd72bb841c652a42ee1934d15bea6be749872dcc2c5b6526327dd22f7f8a1690815ede32de2672b1b",
+    "warning": "Horodatage volontairement ancien ; ne doit jamais être exécuté."
+  }
+}

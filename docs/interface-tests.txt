@@ -1,0 +1,43 @@
+
+> smarthome-g25@0.1.0 test:e2e
+> playwright test
+
+
+Running 30 tests using 1 worker
+
+(node:508379) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [bureau] › tests/browser/app.spec.ts:87:1 › guide public et absence de portefeuille (482ms)
+  ✓   2 [bureau] › tests/browser/app.spec.ts:109:1 › mauvais réseau (370ms)
+  ✓   3 [bureau] › tests/browser/app.spec.ts:117:1 › session réelle signée, tableau de bord, navigation des 18 routes et déconnexion (1.6s)
+  ✓   4 [bureau] › tests/browser/app.spec.ts:182:1 › changement de compte invalide la session (1.1s)
+  ✓   5 [bureau] › tests/browser/app.spec.ts:201:1 › indisponibilité API reste une erreur visible (270ms)
+  ✓   6 [bureau] › tests/browser/app.spec.ts:207:1 › signature de session annulée (355ms)
+  ✓   7 [bureau] › tests/browser/app.spec.ts:215:1 › commande via interface jusqu’à accusé authentifié (2.1s)
+  ✓   8 [bureau] › tests/browser/app.spec.ts:256:1 › formulaire de permission : validations, octroi et révocation (9.1s)
+  ✓   9 [bureau] › tests/browser/app.spec.ts:299:1 › fabricant : fichier, signature et publication réelle (3.0s)
+  ✓  10 [bureau] › tests/browser/app.spec.ts:328:1 › propriétaire : installation depuis le catalogue, résultat signé (5.1s)
+  ✓  11 [bureau] › tests/browser/app.spec.ts:360:1 › enregistrement : modèle cohérent et doublon expliqué avant transaction (948ms)
+  ✓  12 [bureau] › tests/browser/app.spec.ts:405:1 › configuration multi-comptes : propriétaire identifiable et invité sans privilège (734ms)
+  ✓  13 [bureau] › tests/browser/app.spec.ts:446:1 › configuration du propriétaire : lien de gestion des accès (729ms)
+  ✓  14 [bureau] › tests/browser/app.spec.ts:474:1 › administrateur : autorisation puis révocation réelle d’un fabricant (1.7s)
+  ✓  15 [bureau] › tests/browser/app.spec.ts:521:1 › demande d’accès : invité, approbation signée du propriétaire et révocation (8.8s)
+(node:508852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  16 [mobile] › tests/browser/app.spec.ts:87:1 › guide public et absence de portefeuille (510ms)
+  ✓  17 [mobile] › tests/browser/app.spec.ts:109:1 › mauvais réseau (346ms)
+  ✓  18 [mobile] › tests/browser/app.spec.ts:117:1 › session réelle signée, tableau de bord, navigation des 18 routes et déconnexion (1.6s)
+  ✓  19 [mobile] › tests/browser/app.spec.ts:182:1 › changement de compte invalide la session (1.1s)
+  ✓  20 [mobile] › tests/browser/app.spec.ts:201:1 › indisponibilité API reste une erreur visible (286ms)
+  ✓  21 [mobile] › tests/browser/app.spec.ts:207:1 › signature de session annulée (390ms)
+  ✓  22 [mobile] › tests/browser/app.spec.ts:215:1 › commande via interface jusqu’à accusé authentifié (2.1s)
+  ✓  23 [mobile] › tests/browser/app.spec.ts:256:1 › formulaire de permission : validations, octroi et révocation (9.1s)
+  ✓  24 [mobile] › tests/browser/app.spec.ts:299:1 › fabricant : fichier, signature et publication réelle (3.0s)
+  ✓  25 [mobile] › tests/browser/app.spec.ts:328:1 › propriétaire : installation depuis le catalogue, résultat signé (5.0s)
+  ✓  26 [mobile] › tests/browser/app.spec.ts:360:1 › enregistrement : modèle cohérent et doublon expliqué avant transaction (885ms)
+  ✓  27 [mobile] › tests/browser/app.spec.ts:405:1 › configuration multi-comptes : propriétaire identifiable et invité sans privilège (757ms)
+  ✓  28 [mobile] › tests/browser/app.spec.ts:446:1 › configuration du propriétaire : lien de gestion des accès (791ms)
+  ✓  29 [mobile] › tests/browser/app.spec.ts:474:1 › administrateur : autorisation puis révocation réelle d’un fabricant (1.8s)
+  ✓  30 [mobile] › tests/browser/app.spec.ts:521:1 › demande d’accès : invité, approbation signée du propriétaire et révocation (8.7s)
+
+  30 passed (1.3m)

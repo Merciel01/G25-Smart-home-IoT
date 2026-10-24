@@ -1,0 +1,2 @@
+Jeton de gestion valide, droits Maître confirmés (valeur non affichée).
+Transport réel : TLS, ACL, livraison propre, isolation des livraisons lecture/écriture et reprise vérifiés.
