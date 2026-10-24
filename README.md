@@ -2,9 +2,18 @@
 
 Maison intelligente : identité des objets et contrôle d’accès décentralisé. Projet du groupe 25, Blockchain et cryptomonnaies, Master 1, UNIKIN. Produit et documentation en français. Aucun paiement, jeton, NFT ou fonds réel.
 
-**État : prototype local vérifié, déploiement public non réalisé.** Le parcours serrure et les mises à jour inertes traversent les vrais contrats Hardhat, un broker MQTT TLS authentifié et le simulateur Node. Les preuves sont dans [docs/preuve-parcours-local.json](docs/preuve-parcours-local.json) et [docs/preuve-micrologiciels-local.json](docs/preuve-micrologiciels-local.json). Les adresses locales ne sont pas valides sur Sepolia. L’exigence académique d’accès public reste à satisfaire.
+**État : prototype local vérifié et contrats déployés sur Sepolia ; application publique non encore hébergée.** Le parcours serrure et les mises à jour inertes traversent les vrais contrats Hardhat, un broker MQTT TLS authentifié et le simulateur Node. Les preuves sont dans [docs/preuve-parcours-local.json](docs/preuve-parcours-local.json) et [docs/preuve-micrologiciels-local.json](docs/preuve-micrologiciels-local.json). Les adresses locales ne sont pas valides sur Sepolia. L’exigence académique d’accès public reste à satisfaire.
 
 Membres : MUMBERE MITHIMBO DIEME, LUANDA MURAIRI BERNARD, BAZEBANZEA LIPEKENE ENOC, MOMBIMBO N’SIESI XAVIER.
+
+## Contrats Sepolia
+
+Déploiement du 24 octobre 2026, confirmé par RPC :
+
+- [SmartHomeRegistry](https://sepolia.etherscan.io/address/0x67FC7dE3eAf196c2C526Fd8f5c13886B5129676c)
+- [FirmwareRegistry](https://sepolia.etherscan.io/address/0x971C66172841f71D49936cc38b17d031dC175415)
+
+Présence du code, signataire de passerelle, administrateur et autorisations fabricant des trois modèles contrôlés. Voir [la preuve](docs/preuve-deploiement-sepolia.json) et [les adresses et ABI](deployments/sepolia.json). Le code source n’est pas encore vérifié sur l’explorateur. Aucun parcours applicatif de bout en bout sur Sepolia ni hébergement public n’est encore validé. Les objets locaux ne sont pas automatiquement enregistrés sur ce réseau.
 
 ## Installation et démarrage en une commande
 

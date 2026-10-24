@@ -320,3 +320,8 @@ Render ni déploiement Sepolia n’est annoncé comme effectué. La démonstrati
 locale et le broker flespi restent inchangés.
 
 Contrôle final Neon : aucune ligne de sonde restante et aucun scope applicatif migré. La suite technique complète compte 28 scénarios réussis (7 contrats, 7 protocole, 1 SIWE, 2 indexeur, 5 EMQX/chiffrement, 4 flespi, 2 options PostgreSQL). Contrôle TypeScript et build web réussis.
+
+
+## Déploiement Sepolia — 24 octobre 2026
+
+Les deux contrats sont déployés et confirmés avec deux confirmations chacun ; le code est présent. Le signataire du registre et le propriétaire du registre de micrologiciels correspondent à la configuration privée. Le fabricant technique est autorisé pour G25-LOCK, G25-PLUG et G25-CAM. Seuls les ETH gratuits de faucet sont utilisés. Preuve : `preuve-deploiement-sepolia.json`. Vérification du source sur Etherscan, parcours MQTT sur Sepolia, hébergement applicatif public et IPFS public restent à réaliser. L’environnement local n’a pas été remplacé.

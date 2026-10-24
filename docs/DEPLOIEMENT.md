@@ -1,6 +1,6 @@
 # Déploiement préparé, accès externes à compléter
 
-Aucun service public n’a été déployé ou déclaré vérifié. Les adresses dans `deployments/local.json` ne valent que pour l’instance Hardhat correspondante. Elles ne sont pas des adresses Sepolia.
+Les contrats Sepolia sont déployés ; aucun service applicatif public n’a encore été déployé ou déclaré vérifié. Les adresses dans `deployments/local.json` ne valent que pour l’instance Hardhat correspondante. Elles ne sont pas des adresses Sepolia.
 
 ## Prérequis fournis par le groupe
 

@@ -1,0 +1,26 @@
+{
+  "chainId": 11155111,
+  "contracts": {
+    "SmartHomeRegistry": {
+      "address": "0x67FC7dE3eAf196c2C526Fd8f5c13886B5129676c",
+      "transactionHash": "0xd87874321c46bfeae4f7947a8c13bffb40a3a4aadd586be3955de1e3ebf0d5be",
+      "blockNumber": 11986237
+    },
+    "FirmwareRegistry": {
+      "address": "0x971C66172841f71D49936cc38b17d031dC175415",
+      "transactionHash": "0x02b9a0eeed705667c1a7d37958c0346de685b20639455bc6dbb831530dc80a31",
+      "blockNumber": 11986239
+    }
+  },
+  "authorizations": {
+    "G25-LOCK": "0xacae7e18972ddc779d66afa2c5c875829e30e796eb33f7f71e200b5ec2e2476c",
+    "G25-PLUG": "0x2c553acfa57c1c9171eca1fb02cc3de2a3bdd32796ebef6c14b368a1dc2d783a",
+    "G25-CAM": "0x9d8841c80c2ad6f4cae3d9864efb6bc128f83bad505f1c94a6da568a05967321"
+  },
+  "bytecodePresent": true,
+  "gatewaySignerChecked": true,
+  "firmwareOwnerChecked": true,
+  "manufacturerChecked": true,
+  "sourceVerifiedOnExplorer": false,
+  "hostedServicesVerified": false
+}
