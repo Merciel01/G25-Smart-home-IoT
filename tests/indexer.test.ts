@@ -125,3 +125,43 @@ test("réorganisation : réindexation sûre et aucun relayage sensible", async (
   assert.equal(rebuilt.orphanedJobs.orphan.status, "exécutée");
   await fs.rm(directory, { recursive: true });
 });
+test("indexeur : limite RPC dix blocs, curseur continu sans événements sautés", async () => {
+  const directory = await fs.mkdtemp("/tmp/g25-range-");
+  const store = new Store("gateway", undefined, directory);
+  await store.init();
+  const accepted: number[][] = [];
+  const c: any = {
+    chainId: 11155111,
+    registry: Wallet.createRandom().address,
+    block: 100,
+    confirmations: 1,
+    provider: {
+      getNetwork: async () => ({ chainId: 11155111 }),
+      getBlockNumber: async () => 124,
+      getBlock: async (n: number) => ({ hash: "block-" + n }),
+      getLogs: async (q: any) => {
+        if (q.toBlock - q.fromBlock + 1 > 10)
+          throw Error("block range limit: 10 blocks");
+        accepted.push([q.fromBlock, q.toBlock]);
+        return [];
+      },
+    },
+    home: { interface: { parseLog: () => null } },
+  };
+  const indexer = new Indexer(
+    c,
+    store,
+    { connected: true } as any,
+    Wallet.createRandom() as any,
+    {},
+  );
+  for (let i = 0; i < 3; i++) await indexer.tick();
+  assert.equal(indexer.lastError, null);
+  assert.deepEqual(accepted, [
+    [100, 109],
+    [110, 119],
+    [120, 124],
+  ]);
+  assert.equal((await store.read()).cursor.number, 124);
+  await fs.rm(directory, { recursive: true });
+});

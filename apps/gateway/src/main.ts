@@ -22,16 +22,16 @@ await store.mutate((s) => {
 });
 // Prevent multiple indexers/relayers racing on the same gateway scope.
 const lock = store.pool ? await store.pool.connect() : null;
-if (
-  lock &&
-  !(
-    await lock.query(
-      "SELECT pg_try_advisory_lock(hashtext('g25-gateway')) AS acquired",
-    )
-  ).rows[0].acquired
-)
-  throw Error("Passerelle déjà active");
-const mqttClient = mqtt.connect(required("MQTT_URL"), mqttOptions());
+let active = !lock;
+lock?.on("error", () => {
+  // Losing this dedicated session also loses the advisory lock: fail closed.
+  console.error("Connexion de coordination perdue ; arrêt de la passerelle.");
+  process.exit(1);
+});
+const mqttClient = mqtt.connect(required("MQTT_URL"), {
+  ...mqttOptions(),
+  manualConnect: !!lock,
+});
 mqttClient.on("error", () => {});
 const signer = new Wallet(required("GATEWAY_SIGNING_KEY"));
 if (
@@ -44,6 +44,7 @@ const writer = new Contract(
   relayer(c.provider),
 );
 const indexer = new Indexer(c, store, mqttClient, signer, writer);
+if (!active) indexer.lastError = "GATEWAY_STANDBY";
 mqttClient.on("connect", () => {
   void mqttClient.subscribeAsync(
     [`${c.prefix}/+/acks`, `${c.prefix}/+/status`],
@@ -81,6 +82,17 @@ const interval = setInterval(async () => {
   if (pending) return;
   pending = true;
   try {
+    if (!active && lock) {
+      active = (
+        await lock.query(
+          "SELECT pg_try_advisory_lock(hashtext('g25-gateway')) AS acquired",
+        )
+      ).rows[0].acquired;
+      if (!active) return;
+      mqttClient.connect();
+      console.log("Coordination acquise ; traitement MQTT activé.");
+    }
+    if (lock) await lock.query("SELECT 1");
     await indexer.tick();
     await processInstallations(c, store, mqttClient);
   } catch {
@@ -99,7 +111,11 @@ async function stop() {
   clearInterval(interval);
   server.close();
   await mqttClient.endAsync();
-  lock?.release();
+  if (lock) {
+    if (active)
+      await lock.query("SELECT pg_advisory_unlock(hashtext('g25-gateway'))");
+    lock.release();
+  }
   await store.close();
   process.exit(0);
 }

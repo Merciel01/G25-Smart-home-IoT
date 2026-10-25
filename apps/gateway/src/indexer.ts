@@ -15,6 +15,7 @@ export class Indexer {
   running = false;
   stopped = false;
   lastError: string | null = null;
+  logRange = 500;
   constructor(
     public c: ReturnType<typeof config>,
     public store: Store,
@@ -56,12 +57,36 @@ export class Indexer {
       }
       if (s.halted) throw Error("CHAIN_REORG");
       if (safe > cursor.number) {
-        const to = Math.min(safe, cursor.number + 500);
-        const logs = await this.c.provider.getLogs({
-          address: this.c.registry,
-          fromBlock: Math.max(this.c.block, cursor.number - 11),
-          toBlock: to,
-        });
+        let to = Math.min(safe, cursor.number + this.logRange);
+        let logs;
+        try {
+          logs = await this.c.provider.getLogs({
+            address: this.c.registry,
+            fromBlock: Math.max(this.c.block, cursor.number + 1),
+            toBlock: to,
+          });
+        } catch (error: any) {
+          // RPC plans may permit only ten blocks. Retry reads with a bounded range;
+          // never retry or replay writes on an ambiguous transaction failure.
+          const message = String(
+            error?.info?.error?.message ??
+              error?.error?.message ??
+              error?.message ??
+              "",
+          );
+          if (
+            !/block range|range.*limit|limit.*range|10 block/i.test(message) ||
+            this.logRange <= 1
+          )
+            throw error;
+          this.logRange = this.logRange > 10 ? 10 : 1;
+          to = Math.min(safe, cursor.number + this.logRange);
+          logs = await this.c.provider.getLogs({
+            address: this.c.registry,
+            fromBlock: Math.max(this.c.block, cursor.number + 1),
+            toBlock: to,
+          });
+        }
         const block = await this.c.provider.getBlock(to);
         if (!block) throw Error("RPC_UNAVAILABLE");
         await this.store.mutate((d) => {

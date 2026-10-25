@@ -1,3 +1,4 @@
+import { parseOrigins } from "../../../packages/shared/src/origins.ts";
 import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
@@ -52,9 +53,10 @@ export function createApp(
   const publicIdentities = z
     .record(z.string(), address)
     .parse(JSON.parse(process.env.PUBLIC_DEVICE_IDENTITIES_JSON ?? "{}"));
-  const origins = (
-    process.env.ALLOWED_ORIGINS ?? "http://localhost:5173"
-  ).split(",");
+  const origins = parseOrigins(
+    process.env.ALLOWED_ORIGINS ?? "http://localhost:5173",
+    !c.local,
+  );
   const auth = authService(store, origins, c.chainId);
   app.use(
     cors({

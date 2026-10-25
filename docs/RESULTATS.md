@@ -325,3 +325,10 @@ Contrôle final Neon : aucune ligne de sonde restante et aucun scope applicatif 
 ## Déploiement Sepolia — 24 octobre 2026
 
 Les deux contrats sont déployés et confirmés avec deux confirmations chacun ; le code est présent. Le signataire du registre et le propriétaire du registre de micrologiciels correspondent à la configuration privée. Le fabricant technique est autorisé pour G25-LOCK, G25-PLUG et G25-CAM. Seuls les ETH gratuits de faucet sont utilisés. Preuve : `preuve-deploiement-sepolia.json`. Vérification du source sur Etherscan, parcours MQTT sur Sepolia, hébergement applicatif public et IPFS public restent à réaliser. L’environnement local n’a pas été remplacé.
+
+
+## Correctifs du démarrage Render — 25 octobre 2026
+
+La nouvelle passerelle HTTP démarre en attente lorsque l’ancienne instance détient le verrou PostgreSQL. Elle connecte MQTT et active son traitement après acquisition exclusive ; une perte de la connexion de coordination arrête le processus. Le verrou n’est pas forcé ni supprimé. Le basculement réel sur Render reste à vérifier après publication. Le test externe du verrou Neon n’a pas pu être confirmé.
+
+Le RPC a réellement refusé une lecture de journaux sur 500 blocs (code -32600, limite de plage). L’indexeur réduit maintenant sa plage de lecture sans sauter de blocs. Les origines HTTP autorisées sont normalisées pour les espaces et le slash final ; aucune origine générique n’est ajoutée. Suite technique : 30 scénarios réussis ; contrôle TypeScript réussi. Les contrôles publics CORS, indexeur et commande MQTT sur Sepolia restent nécessaires.

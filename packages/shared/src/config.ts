@@ -1,3 +1,4 @@
+import { parseOrigins } from "./origins.ts";
 import "dotenv/config";
 import fs from "node:fs";
 import { Contract, JsonRpcProvider, Wallet, NonceManager } from "ethers";
@@ -15,12 +16,7 @@ export function config() {
     required("DATABASE_URL");
     if (!required("MQTT_URL").startsWith("mqtts://"))
       throw Error("MQTT TLS requis");
-    if (
-      !required("ALLOWED_ORIGINS")
-        .split(",")
-        .every((s) => s.startsWith("https://"))
-    )
-      throw Error("Origine HTTPS requise");
+    parseOrigins(required("ALLOWED_ORIGINS"), true);
   }
   const provider = new JsonRpcProvider(required("RPC_URL"), chainId, {
     cacheTimeout: -1,

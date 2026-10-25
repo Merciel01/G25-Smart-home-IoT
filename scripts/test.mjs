@@ -53,6 +53,7 @@ try {
     "tests/external-broker.test.ts",
     "tests/flespi-broker.test.ts",
     "tests/postgres-options.test.ts",
+    "tests/origins.test.ts",
   ]) {
     console.log("\nFichier : " + file);
     const result = await run(file);
